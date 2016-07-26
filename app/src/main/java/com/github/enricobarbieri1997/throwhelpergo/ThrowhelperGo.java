@@ -22,6 +22,12 @@ public class ThrowhelperGo extends AppCompatActivity {
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
         setContentView(R.layout.activity_throwhelper_go);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+
+        //torna il touch :: getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        // back non fa nulla, devo trovare il modod di falo passare sotto e inoltre il tasto home chiude la app
     }
 
     @Override

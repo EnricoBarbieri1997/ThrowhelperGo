@@ -8,5 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@android:color/transparent"
-    tools:context="com.github.enricobarbieri1997.throwhelpergo.ThrowhelperGo">
+    tools:context="com.github.enricobarbieri1997.throwhelpergo.ThrowhelperGo"
+    android:forceHasOverlappingRendering="false"
+    android:focusable="false">
 </RelativeLayout>
