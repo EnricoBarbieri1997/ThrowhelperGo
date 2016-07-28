@@ -12,9 +12,15 @@ public class ThrowhelperGo extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Settings.canDrawOverlays(this)) {
-            startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentapiVersion <= android.os.Build.VERSION_CODES.LOLLIPOP){
+
+        } else{
+            if (Settings.canDrawOverlays(this)) {
+                startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+            }
         }
+
         Intent svc = new Intent(this, OverlayShowingService.class);
         startService(svc);
         finish();

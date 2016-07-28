@@ -11,10 +11,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.Toast;
+
+import de.mobilej.overlay.R;
 
 public class OverlayShowingService extends Service implements OnTouchListener, OnClickListener {
 
@@ -125,8 +129,12 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     }
 
     @Override
-    public void onClick(View v) {
-        Toast.makeText(this, "Overlay button click event", Toast.LENGTH_SHORT).show();
+    public void onClick(View v)
+    {
+        Intent notInteractable = new Intent(OverlayShowingService.this, NotInteractable.class);
+        String value = "";
+        notInteractable.putExtra("key", value); //Optional parameters
+        notInteractable.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        OverlayShowingService.this.startActivity(notInteractable);
     }
-
 }

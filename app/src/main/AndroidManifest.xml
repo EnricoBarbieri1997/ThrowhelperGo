@@ -2,14 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.mobilej.overlay"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk android:minSdkVersion="14" />
 
-    <application android:label="SystemOverlay" >
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application android:label="SystemOverlay">
         <activity
             android:name="com.github.enricobarbieri1997.throwhelpergo.ThrowhelperGo"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +26,8 @@
         <service
             android:name="com.github.enricobarbieri1997.throwhelpergo.OverlayShowingService"
             android:exported="false" />
-    </application>
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+        <activity android:name="com.github.enricobarbieri1997.throwhelpergo.NotInteractable" android:theme="@style/Theme.Transparent"></activity>
+    </application>
 
 </manifest>
