@@ -99,8 +99,8 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
             int[] topLeftLocationOnScreen = new int[2];
             topLeftView.getLocationOnScreen(topLeftLocationOnScreen);
 
-            System.out.println("topLeftY="+topLeftLocationOnScreen[1]);
-            System.out.println("originalY="+originalYPos);
+           // System.out.println("topLeftY="+topLeftLocationOnScreen[1]);
+          //  System.out.println("originalY="+originalYPos);
 
             float x = event.getRawX();
             float y = event.getRawY();
@@ -131,10 +131,15 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     @Override
     public void onClick(View v)
     {
-        Intent notInteractable = new Intent(OverlayShowingService.this, NotInteractable.class);
-        String value = "";
-        notInteractable.putExtra("key", value); //Optional parameters
-        notInteractable.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        OverlayShowingService.this.startActivity(notInteractable);
+        //Intent notInteractable = new Intent(OverlayShowingService.this, NotInteractable.class);
+        //String value = "";
+       // notInteractable.putExtra("key", value); //Optional parameters
+        //notInteractable.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //OverlayShowingService.this.startActivity(notInteractable);
+
+        DrawView view = new DrawView(this);
+        WindowManager.LayoutParams fillParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, PixelFormat.TRANSLUCENT);
+        fillParams.gravity = Gravity.LEFT | Gravity.TOP;
+        wm.addView(view, fillParams);
     }
 }
