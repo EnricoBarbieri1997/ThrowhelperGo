@@ -11,14 +11,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.Toast;
-
-import de.mobilej.overlay.R;
 
 public class OverlayShowingService extends Service implements OnTouchListener, OnClickListener, View.OnLongClickListener {
 
@@ -33,7 +29,8 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     private WindowManager wm;
     private WindowManager.LayoutParams params;
     private DrawView aim;
-    private WindowManager.LayoutParams fillParams;
+    private WindowManager.LayoutParams fillParamsTouchable;
+    private WindowManager.LayoutParams fillParamsNotTouchable;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -68,6 +65,11 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
         topLeftParams.height = 0;
         wm.addView(topLeftView, topLeftParams);
 
+        fillParamsTouchable = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, PixelFormat.TRANSLUCENT);
+        fillParamsTouchable.gravity = Gravity.LEFT | Gravity.TOP;
+
+        fillParamsNotTouchable = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, PixelFormat.TRANSLUCENT);
+        fillParamsNotTouchable.gravity = Gravity.LEFT | Gravity.TOP;
     }
 
     @Override
@@ -141,35 +143,43 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
         notInteractable.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         OverlayShowingService.this.startActivity(notInteractable);*/
 
-        if (aim != null && aim.isOpen())
+        if (aim != null && aim.isTouchable())
         {
             wm.removeView(aim);
-            aim.setOpen(false);
         }
         else
         {
             aim = new DrawView(this);
-            fillParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, PixelFormat.TRANSLUCENT);
-            fillParams.gravity = Gravity.LEFT | Gravity.TOP;
-            wm.addView(aim, fillParams);
+
+            wm.addView(aim, fillParamsNotTouchable);
 
             wm.removeView(overlayedButton);
             wm.addView(overlayedButton, params);
-            aim.setOpen(true);
         }
     }
 
     @Override
     public boolean onLongClick(View v)
     {
-        /*if(aim != null)
+        if(aim != null)
         {
-            aim.setEnabled(false);
-            wm.updateViewLayout(aim, fillParams);
-
             Toast toast = Toast.makeText(getApplicationContext(), "long click", Toast.LENGTH_SHORT);
+
+            boolean touchable = aim.isTouchable();
+
+            if (touchable)
+            {
+                wm.updateViewLayout(aim, fillParamsNotTouchable);
+                toast.setText("Not Touchable");
+            } else {
+                wm.updateViewLayout(aim, fillParamsTouchable);
+                toast.setText("Touchable");
+            }
+
+            aim.setTouchable(!touchable);
+
             toast.show();
-        }*/
+        }
 
         return true;
     }

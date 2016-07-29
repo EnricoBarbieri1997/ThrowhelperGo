@@ -8,13 +8,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.view.Display;
-import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
 public class DrawView extends View {
-    private boolean isOpen;
+    /**
+     * Status of the view
+     */
+    private boolean isTouchable;
 
     /**
      * Paint used for the circle only
@@ -50,24 +51,6 @@ public class DrawView extends View {
      * width of the display
      */
     private int width = 0;
-
-    /**
-     * Sets the radius of the circumference to be drawn
-     * @param radius radius in pixels
-     */
-    public void setRadius (float radius)
-    {
-        this.radius = radius;
-    }
-
-    /**
-     * Sets the position of the circumference to be drawn
-     * @param y y position relative to the center of the screen
-     */
-    public void setOffsetY (float y)
-    {
-        this.offsetY = y;
-    }
 
     public DrawView(Context context) {
         super(context);
@@ -156,11 +139,37 @@ public class DrawView extends View {
         return true;
     }
 
-    public boolean isOpen() {
-        return isOpen;
+    /**
+     * returns if the view is touchable or not (<-- is it necessary though?)
+     * @return true or false
+     */
+    public boolean isTouchable() {
+        return isTouchable;
     }
 
-    public void setOpen(boolean open) {
-        isOpen = open;
+    /**
+     * Sets the ,,touchability'' of the view (<-- is it necessary though?)
+     * @param touchable  true or false
+     */
+    public void setTouchable(boolean touchable) {
+        isTouchable = touchable;
+    }
+
+    /**
+     * Sets the radius of the circumference to be drawn
+     * @param radius radius in pixels
+     */
+    public void setRadius (float radius)
+    {
+        this.radius = radius;
+    }
+
+    /**
+     * Sets the position of the circumference to be drawn
+     * @param y y position relative to the center of the screen
+     */
+    public void setOffsetY (float y)
+    {
+        this.offsetY = y;
     }
 }
