@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -13,6 +14,7 @@ import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.IntentCompat;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -42,6 +44,13 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     private WindowManager.LayoutParams fillParamsTouchable;
     private WindowManager.LayoutParams fillParamsNotTouchable;
     private static int ONGOING_NOTIFICATION_ID = 1;
+    //We need to declare the receiver with onReceive function as below
+    protected BroadcastReceiver stopServiceReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            stopSelf();
+        }
+    };
 
     private boolean viewHidden = true;
 
@@ -110,7 +119,22 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
             topLeftView = null;
         }
         if (aim != null) {
+            aim.setVisibility(View.GONE);
             wm.removeView(aim);
+            wm.removeViewImmediate(aim);
+        }
+        if (stopServiceReceiver != null){
+            unregisterReceiver(stopServiceReceiver);
+            stopServiceReceiver = null;
+        }
+
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    protected void onPause() {
+        if (stopServiceReceiver != null){
+            unregisterReceiver(stopServiceReceiver);
+            stopServiceReceiver = null;
         }
     }
 
@@ -230,16 +254,6 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
                 .build();
         startForeground(ONGOING_NOTIFICATION_ID, notification);
     }
-
-
-
-    //We need to declare the receiver with onReceive function as below
-    protected BroadcastReceiver stopServiceReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            stopSelf();
-        }
-    };
 
 
 }

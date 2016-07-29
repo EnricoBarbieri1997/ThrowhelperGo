@@ -4,35 +4,32 @@
     api-level="21"
     density="xhdpi"
     format="7"
-    timestamp="47134436065120"
+    timestamp="55524176822800"
     token="1956279644970520939" >
 
     <task
         name="javac"
-        duration="305" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="80" />
+        duration="0" />
     <task
         name="verifier"
-        duration="10" />
+        duration="0" />
 
-    <artifact
-        location="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-        type="DEX" />
-
-    <build timestamp="45827862272477" >
+    <build timestamp="54876423655559" >
         <artifact
             location="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="47134436065120" >
+    <build timestamp="55499605770108" >
         <artifact
             location="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
             type="DEX" />
     </build>
+    <build timestamp="55524176822800" />
 
 </instant-run>
