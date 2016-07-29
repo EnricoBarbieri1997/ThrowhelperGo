@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -45,6 +46,10 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
 
     private boolean viewHidden = true;
 
+    private Drawable pokeballClosed = null;
+    private Drawable pokeballOpened = null;
+
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -57,9 +62,17 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
         wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
 
         overlayedButton = new ImageButton(this);
-        String mDrawableName = "pokeball";
+
+        String mDrawableName = "pokeball_closed";
         int resId = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
-        overlayedButton.setImageDrawable(getResources().getDrawable(resId));
+        pokeballClosed = getResources().getDrawable(resId);
+
+        mDrawableName = "pokeball_opened";
+        resId = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
+        pokeballOpened = getResources().getDrawable(resId);
+
+        overlayedButton.setImageDrawable(pokeballClosed);
+
         overlayedButton.setOnTouchListener(this);
         overlayedButton.setBackgroundColor(Color.BLACK);
         overlayedButton.setOnClickListener(this);
@@ -171,10 +184,13 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
         if (aim != null && !viewHidden)
         {
             wm.removeView(aim);
+            this.overlayedButton.setImageDrawable(pokeballClosed);
         }
         else
         {
             aim = new DrawView(this);
+
+            this.overlayedButton.setImageDrawable(pokeballOpened);
 
             wm.addView(aim, fillParamsNotTouchable);
 
@@ -217,17 +233,21 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     // Create Notification
     private void initNotification() {
         //Register a receiver to stop Service
-        registerReceiver(stopServiceReceiver, new IntentFilter("myFilter"));
-        PendingIntent closingIntent = PendingIntent.getBroadcast(this, 0, new Intent("myFilter"), PendingIntent.FLAG_UPDATE_CURRENT);
-        //Crea la notifica
-        Notification notification = new Notification.Builder(getApplicationContext())
+        registerReceiver(stopServiceReceiver, new IntentFilter("closeThrowHelperGo"));
+        PendingIntent closingIntent = PendingIntent.getBroadcast(this, 0, new Intent("closeThrowHelperGo"), PendingIntent.FLAG_UPDATE_CURRENT);
+
+        //Create notification
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setContentTitle(getText(R.string.notification_title))
                 .setContentText(getText(R.string.notification_message))
-                .setSmallIcon(R.drawable.pokeball)
+                .setSmallIcon(R.drawable.pokeball_closed)
                 .setOngoing(true)
-                .addAction(R.drawable.ic_close_white_18dp, getText(R.string.close_action), closingIntent)
+                .addAction(android.R.drawable.ic_menu_close_clear_cancel, getText(R.string.close_action), closingIntent)
                 .setContentIntent(closingIntent)
-                .build();
+                .setColor(Color.RED);
+
+        Notification notification = notificationBuilder.build();
+
         startForeground(ONGOING_NOTIFICATION_ID, notification);
     }
 
@@ -237,7 +257,9 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     protected BroadcastReceiver stopServiceReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            unregisterReceiver(this);
             stopSelf();
+            System.exit(0);
         }
     };
 

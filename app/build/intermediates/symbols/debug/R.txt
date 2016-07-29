@@ -476,9 +476,10 @@ int drawable abc_textfield_default_mtrl_alpha 0x7f020048
 int drawable abc_textfield_search_activated_mtrl_alpha 0x7f020049
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f02004a
 int drawable abc_textfield_search_material 0x7f02004b
-int drawable ic_close_white_18dp 0x7f02004c
-int drawable notification_template_icon_bg 0x7f02004e
-int drawable pokeball 0x7f02004d
+int drawable notification_template_icon_bg 0x7f02004f
+int drawable pokeball 0x7f02004c
+int drawable pokeball_closed 0x7f02004d
+int drawable pokeball_opened 0x7f02004e
 int id action0 0x7f0b0054
 int id action_bar 0x7f0b0045
 int id action_bar_activity_content 0x7f0b0000
