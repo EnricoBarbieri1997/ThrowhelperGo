@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+=======
+CHANGED,C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\github\enricobarbieri1997\throwhelpergo\ThrowhelperGo$override.class
+CHANGED,C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\github\enricobarbieri1997\throwhelpergo\OverlayShowingService$override.class
+CHANGED,C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\github\enricobarbieri1997\throwhelpergo\OverlayShowingService$1$override.class
+>>>>>>> c4c3338eae7310fc04ab5986a2bcc5c2c5168b36
