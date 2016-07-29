@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ThrowhelperGo</string>
+    <string name="notification_title">Throw helper go</string>
+    <string name="notification_message">Click to close</string>
+    <string name="ticker_text">Throw helper go</string>
+    <string name="close_action">Close</string>
 </resources>

@@ -1,11 +1,18 @@
 package com.github.enricobarbieri1997.throwhelpergo;
 
+
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +23,8 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import de.mobilej.overlay.R;
 
 public class OverlayShowingService extends Service implements OnTouchListener, OnClickListener, View.OnLongClickListener {
 
@@ -32,6 +41,7 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     private DrawView aim;
     private WindowManager.LayoutParams fillParamsTouchable;
     private WindowManager.LayoutParams fillParamsNotTouchable;
+    private static int ONGOING_NOTIFICATION_ID = 1;
 
     private boolean viewHidden = true;
 
@@ -77,6 +87,17 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
 
         fillParamsNotTouchable = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, PixelFormat.TRANSLUCENT);
         fillParamsNotTouchable.gravity = Gravity.LEFT | Gravity.TOP;
+
+        //Crea la notifica
+        initNotification();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        //**Your code **
+        // We want this service to continue running until it is explicitly
+        // stopped, so return sticky.
+        return START_STICKY;
     }
 
     @Override
@@ -87,6 +108,9 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
             wm.removeView(topLeftView);
             overlayedButton = null;
             topLeftView = null;
+        }
+        if (aim != null) {
+            wm.removeView(aim);
         }
     }
 
@@ -188,4 +212,34 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
 
         return true;
     }
+
+
+    // Create Notification
+    private void initNotification() {
+        //Register a receiver to stop Service
+        registerReceiver(stopServiceReceiver, new IntentFilter("myFilter"));
+        PendingIntent closingIntent = PendingIntent.getBroadcast(this, 0, new Intent("myFilter"), PendingIntent.FLAG_UPDATE_CURRENT);
+        //Crea la notifica
+        Notification notification = new Notification.Builder(getApplicationContext())
+                .setContentTitle(getText(R.string.notification_title))
+                .setContentText(getText(R.string.notification_message))
+                .setSmallIcon(R.drawable.pokeball)
+                .setOngoing(true)
+                .addAction(R.drawable.ic_close_white_18dp, getText(R.string.close_action), closingIntent)
+                .setContentIntent(closingIntent)
+                .build();
+        startForeground(ONGOING_NOTIFICATION_ID, notification);
+    }
+
+
+
+    //We need to declare the receiver with onReceive function as below
+    protected BroadcastReceiver stopServiceReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            stopSelf();
+        }
+    };
+
+
 }

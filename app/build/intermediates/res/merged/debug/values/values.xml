@@ -228,7 +228,11 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_name">ThrowhelperGo</string>
+    <string name="close_action">Close</string>
+    <string name="notification_message">Click to close</string>
+    <string name="notification_title">Throw helper go</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="ticker_text">Throw helper go</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

@@ -1767,8 +1767,9 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020049;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02004a;
         public static final int abc_textfield_search_material=0x7f02004b;
-        public static final int notification_template_icon_bg=0x7f02004d;
-        public static final int pokeball=0x7f02004c;
+        public static final int ic_close_white_18dp=0x7f02004c;
+        public static final int notification_template_icon_bg=0x7f02004e;
+        public static final int pokeball=0x7f02004d;
     }
     public static final class id {
         public static final int action0=0x7f0b0054;
@@ -1952,7 +1953,11 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f060011;
         public static final int abc_toolbar_collapse_description=0x7f060012;
         public static final int app_name=0x7f060020;
+        public static final int close_action=0x7f060021;
+        public static final int notification_message=0x7f060022;
+        public static final int notification_title=0x7f060023;
         public static final int status_bar_notification_info_overflow=0x7f060013;
+        public static final int ticker_text=0x7f060024;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f08008a;

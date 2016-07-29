@@ -476,8 +476,9 @@ int drawable abc_textfield_default_mtrl_alpha 0x7f020048
 int drawable abc_textfield_search_activated_mtrl_alpha 0x7f020049
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f02004a
 int drawable abc_textfield_search_material 0x7f02004b
-int drawable notification_template_icon_bg 0x7f02004d
-int drawable pokeball 0x7f02004c
+int drawable ic_close_white_18dp 0x7f02004c
+int drawable notification_template_icon_bg 0x7f02004e
+int drawable pokeball 0x7f02004d
 int id action0 0x7f0b0054
 int id action_bar 0x7f0b0045
 int id action_bar_activity_content 0x7f0b0000
@@ -651,7 +652,11 @@ int string abc_shareactionprovider_share_with 0x7f060010
 int string abc_shareactionprovider_share_with_application 0x7f060011
 int string abc_toolbar_collapse_description 0x7f060012
 int string app_name 0x7f060020
+int string close_action 0x7f060021
+int string notification_message 0x7f060022
+int string notification_title 0x7f060023
 int string status_bar_notification_info_overflow 0x7f060013
+int string ticker_text 0x7f060024
 int style AlertDialog_AppCompat 0x7f08008a
 int style AlertDialog_AppCompat_Light 0x7f08008b
 int style Animation_AppCompat_Dialog 0x7f08008c

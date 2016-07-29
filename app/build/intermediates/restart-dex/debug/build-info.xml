@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
-    api-level="22"
-    density="xxhdpi"
+    abi="x86,armeabi-v7a,armeabi"
+    api-level="21"
+    density="xhdpi"
     format="7"
-    timestamp="1361933514923376"
-    token="7224189866444609206" >
+    timestamp="47134436065120"
+    token="1956279644970520939" >
 
     <task
         name="javac"
-        duration="98" />
+        duration="305" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="15" />
+        duration="80" />
     <task
         name="verifier"
-        duration="3" />
+        duration="10" />
 
     <artifact
-        location="C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        location="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
         type="DEX" />
 
-    <build timestamp="1360851298015520" >
+    <build timestamp="45827862272477" >
         <artifact
-            location="C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="1361761434255210" >
+    <build timestamp="47134436065120" >
         <artifact
-            location="C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
-    </build>
-    <build timestamp="1361933514923376" >
-        <artifact
-            location="C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            location="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
             type="DEX" />
     </build>
 
