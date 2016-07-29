@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class DrawView extends View {
+    private boolean isOpen;
 
     /**
      * Paint used for the circle only
@@ -153,5 +154,13 @@ public class DrawView extends View {
         }
 
         return true;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
     }
 }

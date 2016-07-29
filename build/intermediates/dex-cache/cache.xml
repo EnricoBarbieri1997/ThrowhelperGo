@@ -1,3 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_9031d9b7126af135b3fd3de8eabc55c9baa0454d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.0.0\2943c74db6d4346ab8c6531adac91fa05c137c40\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_794f68a7da626dfe6757b627d9851ba319cf5d1e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="d4eef550e9f50ea8ce148cbecc8de683f0dfcfdb">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_df3dfad554b3d7466e0379c821761c14ddbbe28f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="fb8bcfd3c3c37a0c4b2619818e4ddb0adf066b06">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_7ac80c8a6db242835bab9c7b710d658fb6c1bf0d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_0277e97c8181dc250c0a76c431b7a8c01f5853f1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_0d8e57c05428980527785f32e36c541ee5ead59b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_226eb25fc8868553896689bb1c8517d7901a83a8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="C:\Users\Xxenr\AndroidStudioProjects\ThrowhelperGo\ThrowhelperGo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_38cde2aad9be12d0f227a6ae3f339923d536f968\classes.dex" />
+    </item>
+
+</items>
