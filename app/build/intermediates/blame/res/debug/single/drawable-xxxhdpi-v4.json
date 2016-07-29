@@ -56,6 +56,10 @@
         "source": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\pokeball.png",
+        "source": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\src\\main\\res\\drawable-xxxhdpi\\pokeball.png"
+    },
+    {
         "merged": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png",
         "source": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png"
     },

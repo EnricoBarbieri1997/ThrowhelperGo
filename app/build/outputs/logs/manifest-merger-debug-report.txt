@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml
@@ -50,7 +50,7 @@ ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:13:
 	android:name
 		ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:13:22-77
 application
-ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:15:5-31:19
+ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:15:5-30:19
 MERGED from [com.android.support:appcompat-v7:24.0.0] C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.0.0] C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:24.0.0] C:\_REPOS\_ANDROID\ThrowhelperGo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\AndroidManifest.xml:23:5-20
@@ -82,9 +82,3 @@ ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:26:
 		ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
 		ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:27:13-93
-activity#com.github.enricobarbieri1997.throwhelpergo.NotInteractable
-ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:30:9-146
-	android:theme
-		ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:30:94-134
-	android:name
-		ADDED from C:\_REPOS\_ANDROID\ThrowhelperGo\app\src\main\AndroidManifest.xml:30:19-93

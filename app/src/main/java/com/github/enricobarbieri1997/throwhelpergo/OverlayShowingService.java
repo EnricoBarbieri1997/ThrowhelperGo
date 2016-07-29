@@ -14,13 +14,14 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class OverlayShowingService extends Service implements OnTouchListener, OnClickListener, View.OnLongClickListener {
 
     private View topLeftView;
 
-    private Button overlayedButton;
+    private ImageButton overlayedButton;
     private float offsetX;
     private float offsetY;
     private int originalXPos;
@@ -31,6 +32,8 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     private DrawView aim;
     private WindowManager.LayoutParams fillParamsTouchable;
     private WindowManager.LayoutParams fillParamsNotTouchable;
+
+    private boolean viewHidden = true;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -43,12 +46,16 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
 
         wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
 
-        overlayedButton = new Button(this);
-        overlayedButton.setText("Overlay button");
+        overlayedButton = new ImageButton(this);
+        String mDrawableName = "pokeball";
+        int resId = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
+        overlayedButton.setImageDrawable(getResources().getDrawable(resId));
         overlayedButton.setOnTouchListener(this);
         overlayedButton.setBackgroundColor(Color.BLACK);
         overlayedButton.setOnClickListener(this);
         overlayedButton.setOnLongClickListener(this);
+        overlayedButton.setBackgroundColor(Color.TRANSPARENT);
+        //overlayedButton.setMaxWidth();
 
         params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, PixelFormat.TRANSLUCENT);
         params.gravity = Gravity.LEFT | Gravity.TOP;
@@ -137,13 +144,7 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
     @Override
     public void onClick(View v)
     {
-        /*Intent notInteractable = new Intent(OverlayShowingService.this, NotInteractable.class);
-        String value = "";
-        notInteractable.putExtra("key", value); //Optional parameters
-        notInteractable.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        OverlayShowingService.this.startActivity(notInteractable);*/
-
-        if (aim != null && aim.isTouchable())
+        if (aim != null && !viewHidden)
         {
             wm.removeView(aim);
         }
@@ -156,17 +157,21 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
             wm.removeView(overlayedButton);
             wm.addView(overlayedButton, params);
         }
+        viewHidden = !viewHidden;
     }
 
     @Override
     public boolean onLongClick(View v)
     {
-        if(aim != null)
+        if(aim != null && !viewHidden)
         {
+            // Initialize the message
             Toast toast = Toast.makeText(getApplicationContext(), "long click", Toast.LENGTH_SHORT);
 
+            // Gets the status of the view
             boolean touchable = aim.isTouchable();
 
+            // Switch and update
             if (touchable)
             {
                 wm.updateViewLayout(aim, fillParamsNotTouchable);
@@ -175,9 +180,9 @@ public class OverlayShowingService extends Service implements OnTouchListener, O
                 wm.updateViewLayout(aim, fillParamsTouchable);
                 toast.setText("Touchable");
             }
-
             aim.setTouchable(!touchable);
 
+            // Show message
             toast.show();
         }
 

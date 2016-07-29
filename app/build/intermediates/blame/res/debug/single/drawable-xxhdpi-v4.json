@@ -32,6 +32,10 @@
         "source": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\pokeball.png",
+        "source": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\src\\main\\res\\drawable-xxhdpi\\pokeball.png"
+    },
+    {
         "merged": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
         "source": "C:\\_REPOS\\_ANDROID\\ThrowhelperGo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },

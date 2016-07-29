@@ -27,10 +27,6 @@
         <service
             android:name="com.github.enricobarbieri1997.throwhelpergo.OverlayShowingService"
             android:exported="false" />
-
-        <activity
-            android:name="com.github.enricobarbieri1997.throwhelpergo.NotInteractable"
-            android:theme="@style/Theme.Transparent" />
     </application>
 
 </manifest>
